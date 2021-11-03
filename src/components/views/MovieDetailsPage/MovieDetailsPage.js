@@ -4,6 +4,7 @@ import { useEffect, useState, lazy, Suspense } from "react";
 
 import MoviesApi from "../../../services/moviesAPI";
 import s from "./MovieDetailsPage.module.css";
+import Loader from "../../Loader/Loader";
 
 const Cast = lazy(() => import("../../Cast/Cast" /*webpackChunkName: "cast"*/));
 const Reviews = lazy(() =>
@@ -49,7 +50,7 @@ function MovieDetailsPage() {
             >
               Reviews
             </NavLink>
-            <Suspense fallback={<p>Downloading...</p>}>
+            <Suspense fallback={<Loader />}>
               <Switch>
                 <Route path={`${url}/cast`}>
                   <Cast movieId={movieId} />
