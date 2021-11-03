@@ -1,0 +1,12 @@
+.content {
+  font-size: 14px;
+  color: #212121cb;
+}
+.name {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.author {
+  font-weight: 900;
+}

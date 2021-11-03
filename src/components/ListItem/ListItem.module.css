@@ -1,0 +1,40 @@
+.title {
+  font-weight: 800;
+  font-size: medium;
+  font-family: "Inter", sans-serif;
+  color: #212121;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.rating {
+  margin-top: 10px;
+}
+a {
+  color: #212121;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.item {
+  display: flex;
+}
+
+img {
+  border-radius: 4px;
+}
+.info {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #21212197;
+  margin-left: 15px;
+}

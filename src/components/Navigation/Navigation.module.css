@@ -1,7 +1,20 @@
 .link {
-  color: blue;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: medium;
+  color: #212121;
+}
+
+.link:not(:last-child) {
+  margin-right: 20px;
 }
 
 .active {
-  color: brown;
+  color: #fab700;
+}
+
+nav {
+  padding: 20px;
+  margin-bottom: 50px;
+  border-bottom: 3px solid #212121;
 }

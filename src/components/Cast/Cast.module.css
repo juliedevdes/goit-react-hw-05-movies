@@ -1,0 +1,11 @@
+.item:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.item {
+  display: flex;
+}
+
+.info {
+  margin-left: 10px;
+}

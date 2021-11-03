@@ -1,0 +1,51 @@
+.link {
+  text-decoration: none;
+  font-weight: 800;
+  font-size: medium;
+  color: #212121;
+}
+
+.link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.active {
+  color: #fab700;
+}
+
+nav {
+  padding: 20px;
+  margin-bottom: 50px;
+  border-bottom: 3px solid #212121;
+}
+.container {
+  margin-bottom: 50px;
+}
+
+.movie {
+  margin-bottom: 30px;
+  display: flex;
+}
+
+.info {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: #212121;
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+.release {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #21212132;
+}
+.overview {
+  font-size: 20px;
+  color: #212121a0;
+}
+.title {
+  font-weight: 800;
+  font-size: 30px;
+  font-family: "Inter", sans-serif;
+  color: #212121;
+}

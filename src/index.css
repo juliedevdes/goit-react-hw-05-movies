@@ -1,7 +1,22 @@
 body {
+  color: #212121;
   margin: 0;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+li {
+  list-style: none;
+}
+
+h2,
+h4,
+h3,
+h1,
+p {
+  margin-top: 0;
 }

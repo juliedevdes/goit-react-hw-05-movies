@@ -1,6 +1,8 @@
 import MoviesApi from "../../services/moviesAPI";
 import { useState, useEffect } from "react";
 
+import s from "./Reviews.module.css";
+
 const moviesApi = new MoviesApi();
 
 function Reviews({ movieId }) {
@@ -21,8 +23,10 @@ function Reviews({ movieId }) {
         <ul>
           {reviews.map((review) => (
             <li key={review.id}>
-              <h3>author: {review.author}</h3>
-              <p>{review.content}</p>
+              <h3 className={s.name}>
+                <span className={s.author}>author:</span> {review.author}
+              </h3>
+              <p className={s.content}>{review.content}</p>
             </li>
           ))}
         </ul>
