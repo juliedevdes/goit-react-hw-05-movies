@@ -1,9 +1,17 @@
 import { useState } from "react";
-//import {Link} from 'react-router-dom';
+import { Link, useRouteMatch } from "react-router-dom";
+
+import MoviesApi from "../../../services/moviesAPI";
+
+import s from "./MoviesPage.module.css";
+
+const moviesApi = new MoviesApi();
 
 function MoviesPage() {
   const [inputValue, setinputValue] = useState("");
-  const [query, setQuery] = useState("");
+  const [searchResults, setSearchResults] = useState(null);
+
+  const { url } = useRouteMatch();
 
   const inputChangeHandler = function (e) {
     e.preventDefault();
@@ -12,7 +20,9 @@ function MoviesPage() {
 
   const submitHandler = function (e) {
     e.preventDefault();
-    setQuery(inputValue);
+    moviesApi.searchRequest(inputValue).then((r) => {
+      setSearchResults(r.results);
+    });
   };
 
   return (
@@ -20,12 +30,18 @@ function MoviesPage() {
       <form onSubmit={submitHandler}>
         <label>Search through movies</label>
         <input value={inputValue} onChange={inputChangeHandler}></input>
-        <button type="submit">Search</button>
+        <button className={s.button} type="submit">
+          search
+        </button>
       </form>
 
-      {query && (
+      {searchResults && (
         <ul>
-          <li>список по поиску, каждый елемент тоже ссылка</li>
+          {searchResults.map((movie) => (
+            <li key={movie.id}>
+              <Link to={`${url}/${movie.id}`}>{movie.title}</Link>
+            </li>
+          ))}
         </ul>
       )}
     </div>

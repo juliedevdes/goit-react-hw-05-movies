@@ -1,13 +1,14 @@
 import { Route, useParams, useRouteMatch, Switch } from "react-router";
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState, lazy, Suspense } from "react";
 
 import MoviesApi from "../../../services/moviesAPI";
-
-import Cast from "../../Cast/Cast";
-import Reviews from "../../Reviews/Reviews";
-
 import s from "../../Navigation/Navigation.module.css";
+
+const Cast = lazy(() => import("../../Cast/Cast" /*webpackChunkName: "cast"*/));
+const Reviews = lazy(() =>
+  import("../../Reviews/Reviews" /*webpackChunkName: "reviews"*/)
+);
 
 const moviesApi = new MoviesApi();
 
@@ -37,6 +38,7 @@ function MovieDetailsPage() {
       <NavLink className={s.link} activeClassName={s.active} to={`${url}/cast`}>
         Cast
       </NavLink>
+
       <NavLink
         className={s.link}
         activeClassName={s.active}
@@ -45,15 +47,17 @@ function MovieDetailsPage() {
         Reviews
       </NavLink>
 
-      <Switch>
-        <Route path={`${url}/cast`}>
-          <Cast movieId={movieId} />
-        </Route>
+      <Suspense fallback={<p>Downloading...</p>}>
+        <Switch>
+          <Route path={`${url}/cast`}>
+            <Cast movieId={movieId} />
+          </Route>
 
-        <Route path={`${url}/reviews`}>
-          <Reviews movieId={movieId} />
-        </Route>
-      </Switch>
+          <Route path={`${url}/reviews`}>
+            <Reviews movieId={movieId} />
+          </Route>
+        </Switch>
+      </Suspense>
     </div>
   );
 }

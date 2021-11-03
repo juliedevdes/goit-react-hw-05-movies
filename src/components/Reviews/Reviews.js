@@ -18,36 +18,16 @@ function Reviews({ movieId }) {
 
     default:
       return (
-        reviews && (
-          <ul>
-            {reviews.map((review) => (
-              <li key={review.id}>
-                <h3>author: {review.author}</h3>
-                <p>{review.content}</p>
-              </li>
-            ))}
-          </ul>
-        )
+        <ul>
+          {reviews.map((review) => (
+            <li key={review.id}>
+              <h3>author: {review.author}</h3>
+              <p>{review.content}</p>
+            </li>
+          ))}
+        </ul>
       );
   }
-
-  //return (
-
-  // <div>
-  //   {reviews && reviews.length !== 0 && (
-  //     <ul>
-  //       {reviews.map((review) => (
-  //         <li key={review.id}>
-  //           <h3>author {review.author}</h3>
-  //           <p>{review.content}</p>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   )}
-
-  //   {reviews.lengh && <p>No reviews yet </p>}
-  // </div>
-  // );
 }
 
 export default Reviews;

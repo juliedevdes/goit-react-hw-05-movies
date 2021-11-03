@@ -10,7 +10,6 @@ function HomePage() {
 
   useEffect(() => {
     moviesApi.fetchPopular().then((movies) => {
-      //console.log(movies.results);
       setMovies(movies.results);
     });
   }, []);

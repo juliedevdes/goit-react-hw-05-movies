@@ -5,15 +5,10 @@ import { Component } from "react";
 const API_KEY = "39ac1dadde9328ac6948024fd12d0769";
 const BASE_URL = "https://api.themoviedb.org/3";
 const POPULAR_URL = `${BASE_URL}/trending/movie/day`;
-// const SEARCH_URL = `${BASE_URL}/search/movie`;
+const SEARCH_URL = `${BASE_URL}/search/movie`;
 const ID_URL = `${BASE_URL}/movie/`;
 
 export default class MoviesApi extends Component {
-  state = {
-    searchQuery: "",
-    //this.pageNum = 1;
-  };
-
   fetchPopular() {
     return fetch(`${POPULAR_URL}?api_key=${API_KEY}&page=1`)
       .then((r) => r.json())
@@ -50,15 +45,14 @@ export default class MoviesApi extends Component {
       .catch(console.log);
   }
 
-  // resetPage() {
-  //   this.pageNum = 1;
-  // }
-
-  get query() {
-    return this.state.searchQuery;
-  }
-
-  set query(newQuery) {
-    this.setState({ searchQuery: newQuery });
+  searchRequest(query) {
+    return fetch(
+      `${SEARCH_URL}?api_key=${API_KEY}&query=${query}&page=1&include_adult=false`
+    )
+      .then((r) => r.json())
+      .then((movies) => {
+        return movies;
+      })
+      .catch(console.log);
   }
 }
